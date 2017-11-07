@@ -1,6 +1,6 @@
-FROM ubuntu
-RUN apt-get update;apt-get install -y nodejs npm
+FROM alpine
+RUN apk update;apk add nodejs nodejs-npm
 COPY * /delays/
 WORKDIR /delays
 RUN npm install
-CMD sleep 120;nodejs main.js
+CMD sleep 120;node main.js

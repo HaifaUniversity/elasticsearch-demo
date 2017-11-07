@@ -1,6 +1,5 @@
-#FROM armv7/armhf-ubuntu
-FROM ubuntu
-RUN apt-get update;apt-get install ruby-dev build-essential -y
+FROM alpine
+RUN apk update;apk add ruby ruby-dev ruby-rdoc ruby-irb alpine-sdk
 RUN gem install fluentd -v "~> 0.12.0"
 RUN fluent-gem install fluent-plugin-td fluent-plugin-s3 fluent-plugin-elasticsearch
 ADD fluentd.conf /fluent/fluentd.conf
