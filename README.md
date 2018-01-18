@@ -1,7 +1,7 @@
 # Mine data with Elasticsearch
 <p align=center>
 
-The purpose of this demo is to show how to feed data into Elasticsearch from API calls, Fluent, [Aircraft Delays](https://www.transtats.bts.gov), and a desired Twitter hashtag for data analytics and then archive them to S3. This demo will run Fluentd, Elastisearch, Kibana, and the Minio S3 Server in a microservices architecture.
+The purpose of this demo is to show how to feed data into Elasticsearch from API calls, Fluent, [Aircraft Delays](https://www.transtats.bts.gov), BitCoin price, and a desired Twitter hashtag for data analytics and then archive them to S3. This demo will run Fluentd, Elastisearch, Kibana, and the Minio S3 Server in a microservices architecture.
 
 ### Prerequisites
 
@@ -33,14 +33,16 @@ docker ps
 You should see the following containers running:
 
 ```
-CONTAINER ID        IMAGE                                    COMMAND                  CREATED             STATUS                         PORTS                    NAMES
-af7a43867287        elasticsearchdemo_fluent                 "/bin/sh -c 'fluen..."   3 minutes ago       Up 3 minutes                                            elasticsearchdemo_fluent_1
-cfbcca83cdc5        elasticsearchdemo_elasticsearch-slave1   "/bin/sh -c 'bash ..."   3 minutes ago       Up 3 minutes                                            elasticsearchdemo_elasticsearch-slave1_1
-2889f488fd10        elasticsearchdemo_minio                  "/bin/sh -c './min..."   3 minutes ago       Up 3 minutes                   0.0.0.0:9000->9000/tcp   elasticsearchdemo_minio_1
-60409ed7ad0b        elasticsearchdemo_elasticsearch-master   "/bin/sh -c 'bash ..."   3 minutes ago       Up 3 minutes                   0.0.0.0:9200->9200/tcp   elasticsearchdemo_elasticsearch-master_1
-3020a31be312        elasticsearchdemo_twitter                "/bin/sh -c 'npm i..."   3 minutes ago       Restarting (0) 6 seconds ago                            elasticsearchdemo_twitter_1
-2bce7806889c        elasticsearchdemo_elasticsearch-slave2   "/bin/sh -c 'bash ..."   3 minutes ago       Up 3 minutes                                            elasticsearchdemo_elasticsearch-slave2_1
-01469f4e264b        elasticsearchdemo_kibana                 "/bin/sh -c 'cd /k..."   3 minutes ago       Up 3 minutes                   0.0.0.0:5601->5601/tcp   elasticsearchdemo_kibana_1
+ONTAINER ID        IMAGE                                    COMMAND                  CREATED             STATUS              PORTS                    NAMES
+20e819e3013d        elasticsearchdemo_fluent                 "/bin/sh -c 'fluentd…"   32 seconds ago      Up 57 seconds                                elasticsearchdemo_fluent_1
+72c2dc2b46cd        elasticsearchdemo_flight-delays          "/bin/sh -c 'sleep 1…"   36 seconds ago      Up 58 seconds                                elasticsearchdemo_flight-delays_1
+f242786ac556        elasticsearchdemo_twitter                "/bin/sh -c 'npm ins…"   36 seconds ago      Up 59 seconds                                elasticsearchdemo_twitter_1
+285b2513310f        elasticsearchdemo_elasticsearch-slave1   "/bin/sh -c 'bash /s…"   36 seconds ago      Up 59 seconds                                elasticsearchdemo_elasticsearch-slave1_1
+adb148937fdd        elasticsearchdemo_elasticsearch-master   "/bin/sh -c 'bash /s…"   36 seconds ago      Up 58 seconds       0.0.0.0:9200->9200/tcp   elasticsearchdemo_elasticsearch-master_1
+4dee1accb840        elasticsearchdemo_kibana                 "/bin/sh -c 'cd /kib…"   36 seconds ago      Up 58 seconds       0.0.0.0:5601->5601/tcp   elasticsearchdemo_kibana_1
+273beef5e868        elasticsearchdemo_elasticsearch-slave2   "/bin/sh -c 'bash /s…"   36 seconds ago      Up 59 seconds                                elasticsearchdemo_elasticsearch-slave2_1
+ab3f09566590        elasticsearchdemo_btc                    "/bin/sh -c 'npm ins…"   36 seconds ago      Up 57 seconds                                elasticsearchdemo_btc_1
+2abb3f520561        elasticsearchdemo_minio                  "/bin/sh -c './minio…"   36 seconds ago      Up 59 seconds       0.0.0.0:9000->9000/tcp   elasticsearchdemo_minio_1
 ```
 
 ### Login to the Minio web console to see the logs
@@ -59,6 +61,8 @@ The default index of "logstash" will show you the Elasticsearch logs.
 To view Twitter traffic, change the index to twitter or go to Management->Index Patterns-> + and then add twitter. Uncheck 'Index contains time-based events'.
 
 To view Flight delay data, change the index to flightdata or go to Management->Index Patterns-> + and then add flightdata. Uncheck 'Index contains time-based events'.
+
+To view the BitCoin price stats, change the index to btc or go to Management->Index Patterns-> + and then add btc. 
 
 ### Stopping and Erasing the demo
 
