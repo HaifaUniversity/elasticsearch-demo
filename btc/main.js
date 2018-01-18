@@ -1,6 +1,5 @@
 var request = require('request');
 var elasticsearch = require('./elasticsearch');
-var write_to_scylla = '1';
 const dateTime = require('node-datetime');
 
 //elasticsearch server info
