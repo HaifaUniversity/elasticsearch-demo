@@ -5,6 +5,7 @@ RUN wget -q -O eleastic-search.tar.gz https://artifacts.elastic.co/downloads/ela
 RUN tar xf eleastic-search.tar.gz -C /opt/
 RUN useradd -s /bin/bash elasticsearch -d /home/elasticsearch -m
 RUN chown -R elasticsearch:elasticsearch /opt/elasticsearch*
+RUN sed -i 's/-Xms1g/-Xms300m/g' /opt/elasticsearch-6.1.0/config/jvm.options && sed -i 's/-Xmx1g/-Xmx300m/g' /opt/elasticsearch-6.1.0/config/jvm.options
 RUN sed -i 's/#bootstrap.memory_lock: true/bootstrap.system_call_filter: false/i' /opt/elasticsearch*/config/elasticsearch.yml
 ADD start.sh /
 CMD bash /start.sh

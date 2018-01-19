@@ -7,4 +7,5 @@ RUN sed -i 's/#elasticsearch.url: "http:\/\/localhost:9200"/elasticsearch.url: "
 RUN sed -i 's/#server.port: 5601/server.port: 5601/i' /kibana/config/kibana.yml
 RUN sed -i 's/#elasticsearch.requestTimeout: 30000/elasticsearch.requestTimeout: 120000/i' /kibana/config/kibana.yml
 RUN sed -i 's/6.11.1/6.10.3/i' /kibana/.node-version
+ENV NODE_OPTIONS=--max_old_space_size=500
 CMD cd /kibana;npm start
