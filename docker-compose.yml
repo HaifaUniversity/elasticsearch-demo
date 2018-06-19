@@ -21,7 +21,7 @@ services:
     ports:
       - 9200:9200
     volumes:
-      - /opt/elasticsearch-6.2.4
+      - /opt/elasticsearch-6.3.0
 
   elasticsearch-slave1:
     build: ./elasticsearch
