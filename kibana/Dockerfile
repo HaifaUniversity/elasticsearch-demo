@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine
 RUN apk update;apk add git alpine-sdk nodejs nodejs-npm python alpine-sdk
 RUN npm -g install yarn@1.8.0
 RUN git clone --depth 1 -b 6.3 https://github.com/elastic/kibana.git
