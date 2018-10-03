@@ -1,7 +1,7 @@
 FROM alpine
 RUN apk update;apk add git alpine-sdk nodejs nodejs-npm python alpine-sdk
-RUN npm -g install yarn@1.8.0
-RUN git clone --depth 1 -b 6.3 https://github.com/elastic/kibana.git
+RUN npm -g install yarn
+RUN git clone --depth 1 -b 6.4 https://github.com/elastic/kibana.git
 RUN cd /kibana;node -v | cut -c 2-10 > .node-version;yarn kbn bootstrap;yarn install
 RUN sed -i 's/#server.host: "localhost"/server.host: "0.0.0.0"/i' /kibana/config/kibana.yml
 RUN sed -i 's/#elasticsearch.url: "http:\/\/localhost:9200"/elasticsearch.url: "http:\/\/elasticsearch-master:9200"/i' /kibana*/config/kibana.yml

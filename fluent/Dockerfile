@@ -1,6 +1,6 @@
-FROM alpine
-RUN apk update;apk add ruby ruby-dev ruby-rdoc ruby-irb alpine-sdk
-RUN gem install fluentd -v "~> 0.12.0"
-RUN fluent-gem install fluent-plugin-td fluent-plugin-s3 fluent-plugin-elasticsearch
-ADD fluentd.conf /fluent/fluentd.conf
-CMD fluentd -c /fluent/fluentd.conf
+FROM ubuntu:16.04
+RUN apt-get update;apt-get install curl sudo -y
+RUN curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
+RUN td-agent-gem install fluent-plugin-td fluent-plugin-s3 fluent-plugin-elasticsearch
+ADD fluentd.conf /etc/td-agent/td-agent.conf
+CMD sudo /etc/init.d/td-agent start; tail -f /dev/null

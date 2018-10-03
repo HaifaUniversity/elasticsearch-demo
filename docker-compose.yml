@@ -21,7 +21,7 @@ services:
     ports:
       - 9200:9200
     volumes:
-      - /opt/elasticsearch-6.3.0
+      - /opt/elasticsearch-6.4.2
 
   elasticsearch-slave1:
     build: ./elasticsearch
@@ -58,7 +58,7 @@ services:
       - web
     networks:
       web:
-        
+
   btc:
     build: ./btc
     restart: always
@@ -66,7 +66,7 @@ services:
       - web
     environment:
       - elasticsearch_url=http://elasticsearch-master:9200
-      
+
   twitter:
     build: ./twitter
     restart: always
@@ -79,7 +79,7 @@ services:
       - access_token_secret=change-me
       - twitter_topic=trump
       - elasticsearch_url=http://elasticsearch-master:9200
-  
+
   btc:
     build: ./btc
     restart: always
@@ -87,7 +87,7 @@ services:
       - web
     environment:
       - elasticsearch_url=http://elasticsearch-master:9200
-      
+
   flight-delays:
     build: ./flight-delays
     networks:
