@@ -9,6 +9,12 @@ services:
       - web
     volumes_from:
        - elasticsearch-master
+       
+  filebeat:
+    build: ./filebeat
+    restart: always
+    networks:
+      - web
 
   elasticsearch-master:
     build: ./elasticsearch
