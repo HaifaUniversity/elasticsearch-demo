@@ -12,5 +12,6 @@ RUN sed -i 's/-Xms1g/-Xms300m/g' /opt/elasticsearch-6.5.1/config/jvm.options && 
 RUN sed -i 's/#bootstrap.memory_lock: true/bootstrap.system_call_filter: false/i' /opt/elasticsearch*/config/elasticsearch.yml
 RUN mkdir /opt/elasticsearch-6.5.1/tmp
 RUN echo "-Djna.tmpdir=/opt/elasticsearch-6.5.1/tmp" >> /opt/elasticsearch-6.5.1/config/jvm.options
+RUN su - elasticsearch -c "echo y | /opt/elasticsearch*/bin/elasticsearch-plugin install ingest-geoip"
 ADD start.sh /
 CMD bash /start.sh
