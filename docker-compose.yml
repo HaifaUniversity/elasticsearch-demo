@@ -9,7 +9,7 @@ services:
       - web
     volumes_from:
        - elasticsearch-master
-       
+
   filebeat:
     build: ./filebeat
     restart: always
@@ -27,7 +27,7 @@ services:
     ports:
       - 9200:9200
     volumes:
-      - /opt/elasticsearch-6.5.1
+      - /opt/elasticsearch-6.5.2
 
   elasticsearch-slave1:
     build: ./elasticsearch
