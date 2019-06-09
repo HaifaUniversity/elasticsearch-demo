@@ -21,19 +21,21 @@ services:
     restart: always
     environment:
     - mode=master
+    - name=elasticsearch-master
     - nodes=["elasticsearch-master", "elasticsearch-slave1", "elasticsearch-slave2"]
     networks:
       - web
     ports:
       - 9200:9200
     volumes:
-      - /opt/elasticsearch-7.0.0
+      - /opt/elasticsearch-7.1.1
 
   elasticsearch-slave1:
     build: ./elasticsearch
     restart: always
     environment:
-      - mode=slave
+      - mode=master
+      - name=elasticsearch-slave1
       - nodes=["elasticsearch-master", "elasticsearch-slave1", "elasticsearch-slave2"]
     networks:
       - web
@@ -42,7 +44,8 @@ services:
     build: ./elasticsearch
     restart: always
     environment:
-      - mode=slave
+      - mode=master
+      - name=elasticsearch-slave2
       - nodes=["elasticsearch-master", "elasticsearch-slave1", "elasticsearch-slave2"]
     networks:
       - web
