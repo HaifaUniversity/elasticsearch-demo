@@ -56,11 +56,11 @@ ab3f09566590        elasticsearchdemo_btc                    "/bin/sh -c 'npm in
 2. Click the create button
 3. Start analyzing data
 
-The default index of "logstash" will show you the Elasticsearch logs.
+The default index of "logstash" will show you the Elasticsearch logs. To view the logs, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'logstash' to the 'Index pattern' text field. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to Twitter. 
 
-To view Twitter traffic, change the index to twitter or go to Management->Index Patterns-> + and then add twitter. Uncheck 'Index contains time-based events'.
+To view Twitter traffic, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'twitter' to the 'Index pattern' text field. Uncheck 'Index contains time-based events'. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to Twitter. 
 
-To view Flight delay data, change the index to flightdata or go to Management->Index Patterns-> + and then add flightdata. Uncheck 'Index contains time-based events'.
+To view Flight delay data, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'flightdata' to the 'Index pattern' text field. Uncheck 'Index contains time-based events'. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to flightdata. 
 
 To view the BitCoin price stats, change the index to btc or go to Management->Index Patterns-> + and then add btc. 
 
