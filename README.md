@@ -56,13 +56,13 @@ ab3f09566590        elasticsearchdemo_btc                    "/bin/sh -c 'npm in
 2. Click the create button
 3. Start analyzing data
 
-The default index of "logstash" will show you the Elasticsearch logs. To view the logs, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'logstash' to the 'Index pattern' text field. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to Twitter. 
+The default index of ```logstash``` will show you the Elasticsearch logs. To view the logs, from the main Kibana screen click ```Connect to your Elasticsearch index``` and add ```logstash-*``` to the ```Index pattern``` text field. Click ```Next``` and choose ```@timestamp``` in the  ```Time filter field name```. When finished, click on the options or hamburger icon on the top-left part of the window and choose ```Discover```. Change the index to ```Twitter```. 
 
-To view Twitter traffic, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'twitter' to the 'Index pattern' text field. Uncheck 'Index contains time-based events'. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to Twitter. 
+To view Twitter traffic, from the main Kibana screen click ```Connect to your Elasticsearch index``` and add ```twitter``` to the 'Index pattern' text field. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to Twitter. 
 
-To view Flight delay data, from the main Kibana screen click 'Connect to your Elasticsearch index' and add 'flightdata' to the 'Index pattern' text field. Uncheck 'Index contains time-based events'. When finished, click on the options or hamburger icon on the top-left part of the window and choose 'Discover'. Change the index to flightdata. 
+To view Flight delay data, from the main Kibana screen click ```Connect to your Elasticsearch index``` and add ```flightdata``` to the ```Index pattern``` text field. When finished, click on the options or hamburger icon on the top-left part of the window and choose ```Discover```. Change the index to ```flightdata```. 
 
-To view the BitCoin price stats, change the index to btc or go to Management->Index Patterns-> + and then add btc. 
+To view BitCoin price stats, from the main Kibana screen click ```Connect to your Elasticsearch index``` and add ```btc*``` to the ```Index pattern``` text field. When finished, click on the options or hamburger icon on the top-left part of the window and choose ```Discover```. Change the index to ```btc```. 
 
 ### Stopping and Erasing the demo
 
